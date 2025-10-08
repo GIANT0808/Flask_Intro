@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Area of Triangle</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Triangle Area Calculator{% endblock %}
+
+{% block content %}
     <h1>AREA OF TRIANGLE</h1>
+    
+    <p>Use the formula $A = 1/2 \times base \times height$ to calculate the area.</p>
 
     <form action="/areaOftriangle" method="post">
         <label for="base">Enter the Base:</label>
-        <input type="number" id="base" name="base" required>
+        <input type="number" id="base" name="base" required step="any">
         
         <br><br>
 
-        <label for="height">Enter the Height</label>
-        <input type="number" id="height" name="height" required>
+        <label for="height">Enter the Height:</label>
+        <input type="number" id="height" name="height" required step="any">
 
         <br><br>
 
@@ -21,9 +22,13 @@
     </form>
 
     {% if area %}
-    <p>Area of triangle with base {{ base }} and height {{ height }} is: {{ area }}</p>
+        <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+            <h2>Result</h2>
+            <p>Area of triangle with base **{{ base }}** and height **{{ height }}** is: **{{ area }}**</p>
+        </div>
     {% elif error %}
-    <p> {{ error }} </p>
+        <p style="color: #FF5C8D; font-weight: bold;">{{ error }}</p>
     {% endif %}
-</body>
-</html>
+    
+    <a href="/" class="main-button" style="margin-top: 30px;">⬅ Back Home</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Programming Works{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">My App Portfolio</div>
+        
+        <ul class="nav-links">
+            <li><a href="/areaOftriangle">🔺 Triangle Area</a></li>
+            <li><a href="/areaOfcircle">⏺ Circle Area</a></li>
+            <li><a href="/works">⬆ Uppercase String</a></li>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <li><a href="/profile">👤 Profile</a></li>
+            <li><a href="/contact">📞 Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content-area">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html> 

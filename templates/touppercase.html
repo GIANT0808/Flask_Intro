@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Convert to Uppercase</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Uppercase String Converter{% endblock %}
+
+{% block content %}
     <h1>Convert String to Uppercase</h1>
+    
+    <p>Enter any text below, and the application will return it in all capital letters.</p>
 
     <form action="/works" method="post">
         <label for="inputString">Enter a string:</label>
-        <input type="text" id="inputString" name="inputString">
+        <input type="text" id="inputString" name="inputString" required>
+        
+        <br><br>
         <input type="submit" value="Convert">
     </form>
 
     {% if result %}
-    <p>Converted string: {{ result }}</p>
+        <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+            <h2>Result</h2>
+            <p>Converted string: **{{ result }}**</p>
+        </div>
     {% endif %}
-</body>
-</html>
+    
+    <a href="/" class="main-button" style="margin-top: 30px;">⬅ Back Home</a>
+{% endblock %}

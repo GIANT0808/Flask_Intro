@@ -1,37 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>Welcome to Our Website</h1>
+{% extends "base.html" %}
 
-    <nav>
+{% block title %}Welcome Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome to My Programming Works</h1>
+    
+    <p>Explore my projects and tools using the navigation links in the **sidebar on the left**.</p>
+
+    <h2>Application Overview</h2>
+    
+    <div style="text-align: left; max-width: 600px; margin: 30px auto 0;">
+        <p>This application is built with Flask and demonstrates basic web development principles, including:</p>
         <ul>
-            <li><a href="/profile">Profile</a></li>
-<<<<<<< HEAD
-=======
-            <li><a href="/works">Works</a></li>
->>>>>>> 04210ba4083968f729d6821c95d2794bd9bbb7a1
-            <li><a href="/contact">Contact</a></li>
+            <li>**Profile:** Information about the developer.</li>
+            <li>**Uppercase String Utility:** A tool to convert text to uppercase.</li>
+            <li>**Calculators:** Utilities for finding the area of a circle and a triangle.</li>
+            <li>**Contact:** Developer contact information.</li>
         </ul>
-    </nav>
-
-
-    <h1>Welcome to my programming works</h1>
-    <p>Instruction: create a route and a page for the link that are not working</p>
-
-    <ul>
-<<<<<<< HEAD
-        <li><a href="/works">Convert to Uppercase</a></li>
-        <li><a href="/areaOfcircle">Area of a Circle</a></li>
-        <li><a href="/areaOftriangle">Area of a Triangle</a></li>
-=======
-        <li><a href="/works">toUpperCase</a></li>
-        <li><a href="/areaOfcirle">Area of a Circle</a></li>
-        <li><a href="/areaOfTriangle">Area of a Triangle</a></li>
->>>>>>> 04210ba4083968f729d6821c95d2794bd9bbb7a1
-    </ul>
-</body>
-</html>
-
+        <p style="margin-top: 20px; font-style: italic;">To navigate, simply click on any link in the menu on the left side of the screen.</p>
+    </div>
+    
+    <a href="/profile" class="main-button" style="margin-top: 40px;">View My Profile 👤</a>
+{% endblock %}

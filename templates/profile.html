@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Profile Page</title>
-</head>
-<body>
-    <h1>Welcome to your Profile Page</h1>
-    <p>This is a simple profile page rendered using Flask's templating.</p>
-    <p>Create your profile here with Name, section , course, subject and display your favorite sayings or motto! using html tags </p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+    <h1>👤 My Profile</h1>
+
+    <div class="profile-details" style="text-align: left; max-width: 400px; margin: 0 auto;">
+        <p><strong>Name:</strong> Gian Carlos Tumanan</p>
+        <p><strong>Age:</strong> 19</p>
+        <p><strong>Birthday:</strong> March 08, 2006</p>
+        <p><strong>Gender:</strong> Male</p>
+        <p><strong>Address:</strong> Block 4 Lot 52 Euro Street Barangka, Marikina City</p>
+        <p><strong>Course / Yr / Sec:</strong> BSCPE 2-3</p>
+    </div>
+
+    <a href="/" class="main-button" style="margin-top: 40px;">⬅ Back to Home</a>
+{% endblock %}

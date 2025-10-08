@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact Page</title>
-</head>
-<body>
-    <h1>Contact Us</h1>
-    <p>Name: John Doe</p>
-    <p>Email: johndoe@example.com</p>
-    <p>Phone: 123-456-7890</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Contact Information{% endblock %}
+
+{% block content %}
+    <h1>📞 Contact Me</h1>
+    
+    <p>Feel free to reach out using any of the methods below. I'm available for questions about the app or general inquiries!</p>
+
+    <div style="text-align: left; max-width: 400px; margin: 30px auto;">
+        <p><strong>Name :</strong> Gian Carlos Tumanan</p>
+        <p><strong>Email:</strong> giancarlostumanan@gmail.com</p>
+        <p><strong>Phone no.:</strong> 09297875089</p>
+        <p><strong>Facebook :</strong> Gian Carlos</p>
+        <p><strong>Instagram :</strong>@_dagorr</p>
+    </div>
+    
+    <a href="/" class="main-button" style="margin-top: 40px;">⬅ Back to Home</a>
+{% endblock %}
