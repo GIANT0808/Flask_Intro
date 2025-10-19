@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request
 import math
+from stack import Stack 
+
 
 
 app = Flask(__name__)
+
+stack = Stack()
 
 
 #index
@@ -50,7 +54,50 @@ def triangle():
         except ValueError:
             return render_template('TRIANGLE.html', error="hehe, please enter a valid number. >.<")
     return render_template('TRIANGLE.html')
-    
+
+#works-STACK
+@app.route('/Stacks', methods=['GET', 'POST'])
+def stacks():
+    message = None
+
+    if request.method == 'POST':
+        action = request.form.get('action')
+        # Always read the value and strip whitespace
+        value = request.form.get('value', '').strip()
+
+        if action == 'push':
+            if not value:
+                message = "Please enter a value to push."
+            else:
+                stack.push(value)
+                message = f"Pushed '{value}'."
+
+        elif action == 'pop':
+            removed = stack.pop()
+            message = f"Popped '{removed}'." if removed is not None else "Stack is empty."
+
+        elif action == 'remove_beginning':
+            removed = stack.remove_beginning()
+            message = f"Removed from beginning: '{removed}'." if removed is not None else "Stack is empty."
+
+        elif action == 'remove_end':
+            removed = stack.remove_at_end()
+            message = f"Removed from end: '{removed}'." if removed is not None else "Stack is empty."
+
+        elif action == 'remove_at':
+            if not value:
+                message = "Please enter a value to remove."
+            else:
+                removed = stack.remove_at(value)
+                message = f"Removed '{removed}'." if removed is not None else f"No node with value '{value}' found."
+
+        else:
+            message = f"Unknown action: {action}"
+
+    current_stack = stack.display()
+    return render_template('stacks.html', message=message, stack=current_stack)
+
+
 #Contact
 @app.route('/contact')
 def contact():
